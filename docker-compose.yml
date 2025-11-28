@@ -1,0 +1,44 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0
+    container_name: keycloak-mytheme
+    environment:
+      # Admin credentials
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      
+      # Database settings (dev mode uses H2)
+      KC_DB: dev-file
+      
+      # Health checks
+      KC_HEALTH_ENABLED: true
+      KC_METRICS_ENABLED: true
+      
+      # Development settings - disable caching for theme development
+      KC_SPI_THEME_STATIC_MAX_AGE: -1
+      KC_SPI_THEME_CACHE_THEMES: false
+      KC_SPI_THEME_CACHE_TEMPLATES: false
+      
+    command:
+      - start-dev
+      
+    ports:
+      - "8080:8080"
+      
+    volumes:
+      # Mount our custom theme
+      - ./themes:/opt/keycloak/themes
+      
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health/ready"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+      
+    networks:
+      - keycloak-network
+
+networks:
+  keycloak-network:
+    driver: bridge

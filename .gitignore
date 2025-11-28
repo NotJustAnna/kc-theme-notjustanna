@@ -1,0 +1,25 @@
+# Keycloak data directory (H2 database in dev mode)
+data/
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backup files
+*.bak
+*~
+
+# Build artifacts
+dist/
+build-temp/
+*.jar
