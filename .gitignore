@@ -1,6 +1,8 @@
 # Keycloak data directory (H2 database in dev mode)
 data/
 
+node_modules/
+
 # Logs
 logs/
 *.log

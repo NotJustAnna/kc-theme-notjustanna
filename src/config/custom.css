@@ -1,0 +1,71 @@
+/* OAuth2 Proxy inspired layout */
+
+/* Wallpaper background for right column - hidden on mobile, shown on md+ */
+.kc-wallpaper {
+    @apply relative hidden md:block;
+    background: hsl(var(--muted));
+}
+
+.kc-wallpaper-img {
+    @apply absolute inset-0 h-full w-full object-cover;
+}
+
+#kc-form-login {
+    @apply space-y-7;
+}
+
+#kc-content {
+    @apply self-stretch flex justify-center;
+}
+
+#kc-content-wrapper {
+    @apply flex-1 max-w-80 flex flex-col gap-6;
+}
+
+/* Input Group - handles inputs + buttons in the same line (e.g., password with visibility toggle) */
+/* The parent container (kcInputGroup) has the border and focus ring */
+/* Child inputs and buttons should not duplicate these styles */
+[class*="border-input"][class*="relative"][class*="flex"] > input {
+    @apply flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0 focus-visible:shadow-none dark:bg-transparent;
+}
+
+/* Buttons inside input groups should have no shadow */
+[class*="border-input"][class*="relative"][class*="flex"] > button {
+    @apply shadow-none;
+}
+
+/* Tooltip for login reset - appears on hover next to the reset icon */
+.kc-login-tooltip {
+    @apply relative inline-block;
+}
+
+.kc-login-tooltip .kc-tooltip-text {
+    @apply invisible absolute left-[160%] -top-0.5 min-w-[130px] rounded-sm bg-popover px-2.5 py-1.5 text-center text-xs text-popover-foreground opacity-0 shadow-md transition-opacity duration-300 border;
+}
+
+.kc-login-tooltip:hover .kc-tooltip-text {
+    @apply visible opacity-100;
+}
+
+.kc-login-tooltip .kc-tooltip-text::after {
+    content: " ";
+    @apply absolute right-full top-[15px] -mt-1.5 border-[5px] border-solid border-transparent border-r-popover;
+}
+
+#kc-username {
+    flex-direction: row;
+    align-items: flex-end;
+    @apply gap-2.5;
+}
+
+#kc-username #reset-login {
+    font-size: 0.7em;
+}
+
+#kc-username #reset-login #kc-login-tooltip i {
+    @apply text-neutral-700;
+}
+
+.notjustanna-icon {
+    @apply flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground;
+}

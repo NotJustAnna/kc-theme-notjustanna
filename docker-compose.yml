@@ -26,8 +26,8 @@ services:
       - "8080:8080"
       
     volumes:
-      # Mount our custom theme
-      - ./themes:/opt/keycloak/themes
+      # Mount the built theme (dist/theme, not src)
+      - ./dist/theme:/opt/keycloak/themes
       
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/health/ready"]
