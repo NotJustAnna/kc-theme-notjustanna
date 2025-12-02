@@ -1,14 +1,26 @@
 # Keycloak Custom Theme
 
-A custom Keycloak theme built with Tailwind CSS and Lucide icons for modern, beautiful authentication pages.
+A custom, shadcn-inspired Keycloak theme built with Tailwind CSS and Lucide icons for modern, beautiful authentication pages.
+
+![Theme Screenshot](screenshots/theme.png)
 
 ## Features
 
 - 🎨 **Tailwind CSS** - Utility-first styling with Tailwind v4
 - 🎭 **Lucide Icons** - Beautiful icon font integration
 - 🔄 **Hot Reload** - Fast development with watch mode
-- 🐳 **Docker Ready** - Includes Docker Compose setup for testing
+- 🐳 **Easily Testable** - Includes Docker Compose setup for testing
 - 📦 **JAR Export** - Build production-ready theme archives
+- 🛡️ **CSS/JS Only** - No FTL template modifications for maximum compatibility
+
+This theme uses **only CSS and JavaScript** customizations without modifying any FreeMarker (FTL) templates. This approach offers significant advantages:
+
+- **✅ Upgrade Safe** - No template conflicts when upgrading Keycloak versions
+- **✅ Future Proof** - Inherits all Keycloak base theme improvements automatically
+- **✅ Less Maintenance** - No need to sync template changes with new Keycloak releases
+- **✅ More Reliable** - Reduces risk of breaking authentication flows
+
+By depending entirely on Keycloak's base theme templates, this theme is far less prone to breaking than traditional FTL-based themes.
 
 ## Prerequisites
 
@@ -150,4 +162,4 @@ The theme name is auto-detected from the directory in `src/resources/theme/`. To
 
 ## License
 
-This project is private and not licensed for public use.
+MIT License - see [LICENSE](LICENSE) for details.

@@ -1,6 +1,6 @@
 {
-  "name": "notjustanna",
-  "private": true,
+  "name": "kc-theme-notjustanna",
+  "description": "Custom Keycloak theme by NotJustAnna",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
